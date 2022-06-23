@@ -1,39 +1,38 @@
 import { BsBookmark } from 'react-icons/bs';
 
+import { CharOverflow } from '@/src/utils/Functions/CharOverflow';
+
 interface Props {
    data: {
-      title?: string | any;
-      synopsis?: string | any;
-      episodes?: number | any;
+      title: string | any;
+      synopsis: string | any;
+      img_url: string;
+      episodes: number | any;
    };
+   onButtonClick?: React.MouseEventHandler;
 }
 
-const Lengthener = (text: string, length: number): string => {
-   const shortenedText = text.substring(0, length);
-
-   if (text.length > length) {
-      return shortenedText + '...';
-   } else {
-      return text;
-   }
-};
-
-export default function HomeCard({ data }: Props): JSX.Element {
+export default function HomeCard({ data, onButtonClick }: Props): JSX.Element {
    return (
-      <div className="text-white w-[271px] min-h-[578px] h-auto px-5 py-8 flex flex-col justify-between items-center bg-black rounded-[16px]">
+      <div
+         className="text-white w-[271px] min-h-[578px] h-auto px-5 py-8 flex flex-col justify-between items-center bg-black rounded-[16px] m-3"
+         onClick={onButtonClick}
+      >
          <img
-            src="https://placekitten.com/500/500"
-            className="w-full h-[150px] rounded-[11px]"
+            src={data.img_url}
+            className="w-full h-[150px] rounded-[11px] object-cover object-top"
          />
          <div className="w-full h-auto flex justify-between">
-            <h4 className="text-[24px] font-semibold font-varela w-[3/4]">
-               {Lengthener(data.title, 20)}
+            <h4 className="text-[18px] font-semibold font-varela w-[3/4]">
+               {CharOverflow(data.title, 30)}
             </h4>
             <BsBookmark color="white" size={35} />
          </div>
-         <p className="self-start">{Lengthener(data.synopsis, 100)}</p>
+         <p className="self-start font-raleway">
+            {CharOverflow(data.synopsis, 150)}
+         </p>
          <div className="border border-dashed border-white w-full" />
-         <div>
+         <div className="font-raleway">
             <p>{data.episodes}/77</p>
             <p>Episodes</p>
          </div>
