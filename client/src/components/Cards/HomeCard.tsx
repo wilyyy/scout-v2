@@ -15,12 +15,12 @@ interface Props {
 export default function HomeCard({ data, onButtonClick }: Props): JSX.Element {
    return (
       <div
-         className="text-white w-[271px] min-h-[578px] h-auto px-5 py-8 flex flex-col justify-between items-center bg-black rounded-[16px] m-3"
          onClick={onButtonClick}
+         className="basis-[271px] grow-1 text-white hover:bg-red-900 min-h-[578px] h-auto px-5 py-8 flex flex-col justify-between items-center bg-black rounded-[16px] m-2"
       >
          <img
             src={data.img_url}
-            className="w-full h-[150px] rounded-[11px] object-cover object-top"
+            className="cursor-pointer w-full h-[150px] rounded-[11px] object-cover object-top"
          />
          <div className="w-full h-auto flex justify-between">
             <h4 className="text-[18px] font-semibold font-varela w-[3/4]">

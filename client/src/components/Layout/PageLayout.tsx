@@ -13,10 +13,10 @@ export default function PageLayout({
 }: Props): JSX.Element {
    return (
       <div
-         className={`w-screen ${height} flex justify-center ${bgColor} font-varela`}
+         className={`w-screen ${height} flex flex-col items-center ${bgColor} font-varela`}
       >
-         <div className="w-11/12 flex flex-col items-center">
-            <NavBar />
+         <NavBar />
+         <div className="min-w-0 w-11/12 flex flex-col items-center">
             {children}
          </div>
       </div>
