@@ -1,0 +1,3 @@
+navsearch needs to sort filtered search results, potentailly with external functions
+
+look into making async axios functions into external modules, with setstate functionally being a callback parameter
