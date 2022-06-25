@@ -4,10 +4,10 @@ import { CharOverflow } from '@/src/utils/Functions/CharOverflow';
 
 interface Props {
    data: {
-      title: string | any;
-      synopsis: string | any;
+      title: string;
+      synopsis: string;
       img_url: string;
-      episodes: number | any;
+      episodes: number;
    };
    onButtonClick?: React.MouseEventHandler;
 }

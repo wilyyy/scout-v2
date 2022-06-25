@@ -4,7 +4,7 @@ export interface Dataset {
    synopsis: string;
    genre: string[];
    aired: string;
-   episodes: string;
+   episodes: number;
    members: string;
    popularity: number;
    ranked: number;

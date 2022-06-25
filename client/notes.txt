@@ -1,3 +1,6 @@
 navsearch needs to sort filtered search results, potentailly with external functions
 
 look into making async axios functions into external modules, with setstate functionally being a callback parameter
+maybe using a persisting data hook instead and calling that state change in the module
+
+get anime by id in api and use router.query and put that in literal in axios 

@@ -32,7 +32,7 @@ const Home: NextPage = () => {
    return (
       <PageLayout height="h-auto" bgColor="bg-[#1C2A36]">
          <div className="inline-flex flex-wrap justify-center items-center">
-            {data?.map((el: Dataset, index: number) => (
+            {data.map((el: Dataset, index: number) => (
                <HomeCard
                   data={el}
                   key={index}

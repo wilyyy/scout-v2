@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import axios from 'axios';
 
 import { Dataset } from '@/src/utils/Interface/Dataset';
@@ -16,37 +16,48 @@ const DropdownContainer = ({
 };
 
 export default function NavSearch(): JSX.Element {
-   const [data, setData] = useState([] as any[]);
    const [searchValue, setSearchValue] = useState('');
+   const [searchResult, setSearchResult] = useState([] as any[]);
 
-   useEffect(() => {
-      const GetData = async () => {
-         try {
-            const results = await axios.get(
-               'https://scout-serverside.herokuapp.com/animes/all'
-            );
-            setData(results.data);
-            console.log(results.data);
-         } catch (e) {
-            console.log(e);
-         }
-      };
+   const HandleSearch = async (txt: string) => {
+      setSearchValue(txt);
 
-      GetData();
-   }, []);
+      const result = await axios.get(
+         'https://scout-serverside.herokuapp.com/animes/all'
+      );
+
+      setSearchResult(result.data);
+   };
+
+   // useEffect(() => {
+   //    const GetData = async () => {
+   //       try {
+   //          const results = await axios.get(
+   //             'https://scout-serverside.herokuapp.com/animes/all'
+   //          );
+   //          setData(results.data);
+   //          console.log(results.data);
+   //       } catch (e) {
+   //          console.log(e);
+   //       }
+   //    };
+
+   //    GetData();
+   // }, []);
 
    return (
       <div className="w-1/2 relative">
          <input
             type="text"
             className="w-full h-[40px] relative right-[30px] p-3 rounded-[50px]"
-            onChange={(e) => setSearchValue(e.target.value)}
+            onChange={(e) => HandleSearch(e.target.value)}
             value={searchValue}
          />
          {/* this still needs sorting for proper search */}
          {searchValue === '' ? null : (
             <DropdownContainer>
-               {data
+               {searchResult
+                  // .sort((a, b) => a.title.localeCompare(b.title))
                   .filter((el) =>
                      el.title.toLowerCase().includes(searchValue.toLowerCase())
                   )
