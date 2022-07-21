@@ -27,6 +27,7 @@ export default function NavBar(): JSX.Element {
             <img
                src="https://placekitten.com/200/300"
                className="w-[75px] h-[75px] rounded-[100px] cursor-pointer"
+               onClick={() => router.push('/profile/1234')}
             />
          </div>
       </div>

@@ -1,19 +1,7 @@
 import { CharOverflow } from '@/src/utils/Functions/CharOverflow';
+import { DataProps } from '@/src/utils/Interface/Dataset';
 
-interface Props {
-   data: {
-      title: string;
-      synopsis: string;
-      img_url: string;
-      episodes: number;
-      score: string;
-      ranked: number;
-      popularity: number;
-      genre: string[];
-   };
-}
-
-export default function AnimeInfoCard({ data }: Props): JSX.Element {
+export default function AnimeInfoCard({ data }: DataProps): JSX.Element {
    return (
       <div className="w-10/12 h-[300px] flex">
          <img src={data.img_url} className="w-2/12" />

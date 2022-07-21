@@ -1,18 +1,12 @@
 import { BsBookmark } from 'react-icons/bs';
 
 import { CharOverflow } from '@/src/utils/Functions/CharOverflow';
+import { DataProps } from '@/src/utils/Interface/Dataset';
 
-interface Props {
-   data: {
-      title: string;
-      synopsis: string;
-      img_url: string;
-      episodes: number;
-   };
-   onButtonClick?: React.MouseEventHandler;
-}
-
-export default function HomeCard({ data, onButtonClick }: Props): JSX.Element {
+export default function HomeCard({
+   data,
+   onButtonClick,
+}: DataProps): JSX.Element {
    return (
       <div
          onClick={onButtonClick}

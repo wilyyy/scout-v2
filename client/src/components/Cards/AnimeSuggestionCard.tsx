@@ -1,12 +1,6 @@
-interface Props {
-   data: {
-      title: string;
-      genre: string[];
-      img_url: string;
-   };
-}
+import { DataProps } from '@/src/utils/Interface/Dataset';
 
-export default function AnimeSuggestionCard({ data }: Props): JSX.Element {
+export default function AnimeSuggestionCard({ data }: DataProps): JSX.Element {
    return (
       <div className="w-[200px] h-[320px] rounded-[15px] bg-black overflow-hidden">
          <img

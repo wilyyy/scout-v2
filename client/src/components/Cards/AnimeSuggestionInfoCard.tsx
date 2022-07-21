@@ -1,16 +1,9 @@
 import { CharOverflow } from '@/src/utils/Functions/CharOverflow';
+import { DataProps } from '@/src/utils/Interface/Dataset';
 
-interface Props {
-   data: {
-      title: string;
-      synopsis: string;
-      score: string;
-      ranked: number;
-      popularity: number;
-   };
-}
-
-export default function AnimeSuggestionInfoCard({ data }: Props): JSX.Element {
+export default function AnimeSuggestionInfoCard({
+   data,
+}: DataProps): JSX.Element {
    return (
       <div className="w-[460px] h-[267px] bg-black text-white rounded-[16px] flex flex-col p-5 items-center justify-between">
          <h2 className="text-[20px] font-bold font-varela">{data.title}</h2>
